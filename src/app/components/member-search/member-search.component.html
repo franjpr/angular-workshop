@@ -1,0 +1,15 @@
+<div
+  fxLayout="row"
+  fxLayoutAlign="start center"
+  fxLayoutGap="1em"
+  [formGroup]="inputForm"
+>
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Organization"
+      formControlName="organizationControl"
+    />
+  </mat-form-field>
+  <button mat-raised-button (click)="onSearch()">Search!</button>
+</div>

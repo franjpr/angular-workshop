@@ -1,0 +1,13 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ title }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <app-member-search
+      [currentOrganization]="currentOrganization"
+      (searchEmitter)="onSearchHandler($event)"
+    ></app-member-search>
+    <mat-divider></mat-divider>
+    <app-organization-members></app-organization-members>
+  </mat-card-content>
+</mat-card>
