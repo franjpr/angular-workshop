@@ -1,1 +1,32 @@
-<p>organization-members works!</p>
+<div fxLayout="column" fxLayoutAlign="start stretch">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z0" fxFlex>
+    <ng-container matColumnDef="avatar_url">
+      <th mat-header-cell *matHeaderCellDef>avatar_url</th>
+      <td mat-cell *matCellDef="let element">
+        <img mat-card-avatar [src]="element.avatar_url" />
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="login">
+      <th mat-header-cell *matHeaderCellDef>login</th>
+      <td mat-cell *matCellDef="let element">{{ element.login }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>viewProfile</th>
+      <td mat-cell *matCellDef="let element">
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="viewProfile(element)"
+        >
+          View profile
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>

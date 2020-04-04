@@ -5,6 +5,8 @@ import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { MatDividerModule } from "@angular/material/divider";
+import { MatTableModule } from "@angular/material/table";
+import { MatPaginatorModule } from "@angular/material/paginator";
 
 @NgModule({
   declarations: [],
@@ -15,6 +17,8 @@ import { MatDividerModule } from "@angular/material/divider";
     MatButtonModule,
     MatProgressSpinnerModule,
     MatDividerModule,
+    MatTableModule,
+    MatPaginatorModule,
   ],
   exports: [
     CommonModule,
@@ -23,6 +27,8 @@ import { MatDividerModule } from "@angular/material/divider";
     MatButtonModule,
     MatProgressSpinnerModule,
     MatDividerModule,
+    MatTableModule,
+    MatPaginatorModule,
   ],
 })
 export class MaterialModule {}

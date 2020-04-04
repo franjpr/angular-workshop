@@ -4,19 +4,18 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { AppComponent } from "./app.component";
 
-import { MembersModule } from "./members/members.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { COMPONENTS } from "./components";
-import { LoadingOverlayComponent } from "./components/loading-overlay/loading-overlay.component";
 import { MaterialModule } from "./modules/material/material.module";
 import { ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
-  declarations: [AppComponent, ...COMPONENTS, LoadingOverlayComponent],
+  declarations: [AppComponent, ...COMPONENTS],
   imports: [
     BrowserModule,
-    MembersModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     ReactiveFormsModule,
     FlexLayoutModule,
     MaterialModule,
