@@ -3,6 +3,8 @@ import { ApiMemberEntity } from "./services/api-models/member-entity.model";
 import { MembersApiService } from "./services/members-api.service";
 import { Subscription, Subject } from "rxjs";
 import { MemberEntity, createDefaultMemberEntityVm } from "./models/user.model";
+import { MatDialogRef, MatDialog } from "@angular/material/dialog";
+import { MemberDialogComponent } from "./components/member-dialog/member-dialog.component";
 
 @Component({
   selector: "app-root",
@@ -17,7 +19,10 @@ export class AppComponent implements OnInit, OnDestroy {
   currentOrganization: string = "Lemoncode";
   currentMembers: MemberEntity[] = [];
 
-  constructor(private ghService: MembersApiService) {}
+  constructor(
+    private ghService: MembersApiService,
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.membersSubscription = this.ghService
@@ -39,9 +44,11 @@ export class AppComponent implements OnInit, OnDestroy {
     this.isLoading = false;
   }
 
-  viewProfile(profileUrl: MemberEntity): void {
-    console.log("AppComponent -> viewProfile -> profileUrl", profileUrl);
-    // get data and display popUp
+  async viewProfile(member: MemberEntity): Promise<void> {
+    const user = await this.ghService.getMember(member.id).toPromise();
+    this.dialog.open(MemberDialogComponent, {
+      data: user,
+    });
   }
 
   ngOnDestroy(): void {

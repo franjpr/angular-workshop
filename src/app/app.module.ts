@@ -5,13 +5,14 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { AppComponent } from "./app.component";
 
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { COMPONENTS } from "./components";
+import { COMPONENTS, ENTRY_COMPONENTS } from "./components";
 import { MaterialModule } from "./modules/material/material.module";
 import { ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [AppComponent, ...COMPONENTS],
+  entryComponents: [...ENTRY_COMPONENTS],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

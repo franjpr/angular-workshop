@@ -13,5 +13,7 @@ export const mapFromApiToVm = (ghUser: ApiMemberEntity): MemberEntity => {
     id: ghUser.id,
     avatar_url: ghUser.avatar_url,
     login: ghUser.login,
+    name: ghUser.name,
+    company: ghUser.company,
   };
 };
